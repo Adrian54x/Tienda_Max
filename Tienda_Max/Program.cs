@@ -21,7 +21,7 @@ do
             {
                 val2 = true;
                 Productos p = new Productos();      
-                Console.Write("Nombre del producto:");
+                Console.Write("\nNombre del producto:");
                 p.Nombre = Console.ReadLine();
                 if (p.Nombre == "")
                 {
@@ -44,7 +44,11 @@ do
             case 3:
             case 4:
         case 5:
-
+            foreach(var p  in productos)
+            {
+                p.Value.MostrarProductos();
+            }
+            break;
         case 6:
             Console.WriteLine("Saliendo...");
             val1 = false;
