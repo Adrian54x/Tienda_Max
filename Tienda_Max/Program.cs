@@ -16,16 +16,27 @@ do
     switch(opcion)
     {
         case 1:
-            Console.WriteLine("Precione doble e nter para salir");
+            Console.WriteLine("Precione enter para salir");
             do
             {
                 val2 = true;
-                Console.Write("Codigo del producto:");
-                int codigo = int.Parse(Console.ReadLine());
-                Productos p = new Productos();
+                Productos p = new Productos();      
                 Console.Write("Nombre del producto:");
-                Console.Write("Precio del producto:");
-
+                p.Nombre = Console.ReadLine();
+                if (p.Nombre == "")
+                {
+                    Console.WriteLine("Saliendo");
+                    val2 = false;
+                }
+                else
+                {
+                    Console.Write("Codigo del producto:");
+                    int codigo = int.Parse(Console.ReadLine());
+                    p.Codigo = codigo;
+                    Console.Write("Precio del producto:");
+                    p.Precio = double.Parse(Console.ReadLine());
+                    productos.Add(codigo, p);
+                }
 
             } while (val2);
             break;
@@ -47,10 +58,10 @@ do
 class Productos
 {
     public int Codigo;
-    public string nombre;
-    public double precio;
+    public string Nombre;
+    public double Precio;
     public void MostrarProductos()
     {
-        Console.WriteLine($"\nNombre: {nombre} \nPrecio:Q{precio:F2} \nCodigo:{Codigo}");
+        Console.WriteLine($"\nNombre: {Nombre} \nPrecio:Q{Precio:F2} \nCodigo:{Codigo}");
     }
 }
